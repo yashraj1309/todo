@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import AddForm from './Components/AddForm';
+import { useState } from 'react';
+import DisplayData from './Components/DisplayData';
 
 function App() {
+  const [addToggle, setAddToggle] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>TO-DO List</h1>
+      <div className="container">
+        <button type="button" class="btn btn-primary mb-3" onClick={()=>setAddToggle(!addToggle)}>
+         {addToggle ? "Close Form" : "Add Task"} 
+        </button>
+         { addToggle && <AddForm/>
+    }
+    <DisplayData/>
+      </div>
     </div>
   );
 }
