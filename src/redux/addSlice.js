@@ -12,10 +12,13 @@ export const counterSlice = createSlice({
      state.value = [...state.value, action.payload]
      console.log(state.value);
     },
+    removeTodo: (state, action) => {
+      state.value = state.value.filter((item)=> item.id !== action.payload)
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo } = counterSlice.actions;
+export const { addTodo, removeTodo } = counterSlice.actions;
 
 export default counterSlice.reducer;

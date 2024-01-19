@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import AddForm from './Components/AddForm';
 import { useState } from 'react';
@@ -8,14 +7,20 @@ function App() {
   const [addToggle, setAddToggle] = useState(false);
   return (
     <div className="App">
-      <h1>TO-DO List</h1>
+      <header style={{padding: '16px'}}>
+        <h1 style={{ textAlign: "left" }}>To Do App</h1>
+
+      </header>
       <div className="container">
-        <button type="button" class="btn btn-primary mb-3" onClick={()=>setAddToggle(!addToggle)}>
-         {addToggle ? "Close Form" : "Add Task"} 
+        <button
+          type="button"
+          className="btn btn-primary mb-3"
+          onClick={() => setAddToggle(!addToggle)}
+        >
+          {addToggle ? "Close Form" : "Add Task"}
         </button>
-         { addToggle && <AddForm/>
-    }
-    <DisplayData/>
+        {addToggle && <AddForm />}
+        <DisplayData />
       </div>
     </div>
   );

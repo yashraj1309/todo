@@ -23,6 +23,7 @@ function AddForm() {
         }
         const id = Math.random();
         dispatch(addTodo({id: id,task: task, priority: priority}));
+        setTask('');
     }
 
     const ToastHandler = () => {
@@ -41,6 +42,7 @@ function AddForm() {
             type="text"
             placeholder="Enter Task"
             onChange={(e) => setTask(e.target.value)}
+            value={task}
           />
         </Form.Group>
         <Form.Select className="m-3" style={{ width: "fit-content" }} onChange={(e)=> setPriority(e.target.value)}>
