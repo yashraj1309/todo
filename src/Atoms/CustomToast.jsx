@@ -4,7 +4,11 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 
 export default function CustomToast(props) {
   return (
-    <ToastContainer position="top-end" className="p-3">
+    <ToastContainer
+      position="top-end"
+      className="p-3"
+      style={{ marginTop: "5%" }}
+    >
       <Toast style={{ width: "280px" }}>
         <div
           className="d-flex justify-content-center align-items-center p-2 text-danger"

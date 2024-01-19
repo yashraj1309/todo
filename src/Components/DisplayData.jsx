@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Task from "../Atoms/Task";
 import Table from "react-bootstrap/Table";
-import { useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { removeTodo } from "../redux/addSlice";
+import { addToFinishList } from '../redux/finishedSlice'
 
 export default function DisplayData() {
   const [taskList, setTaskList] = useState([]);
@@ -37,9 +37,9 @@ export default function DisplayData() {
    }
   }
 
-  const checkBoxHandler = (id) => {
-    dispatch(removeTodo(id));
-    console.log(id);
+  const checkBoxHandler = (item) => {
+    dispatch(removeTodo(item.id));
+    dispatch(addToFinishList(item)); //for adding data to completed list;
   }
 
   return (
@@ -79,7 +79,7 @@ export default function DisplayData() {
               priority={item.priority}
               index={index + 1}
               key={item.id}
-              onChange={()=>checkBoxHandler(item.id)}
+              onChange={()=>checkBoxHandler(item)}
             />
           ))}
         </tbody>
