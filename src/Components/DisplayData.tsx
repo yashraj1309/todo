@@ -5,11 +5,13 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { removeTodo } from "../redux/addSlice";
 import { addToFinishList } from '../redux/finishedSlice'
+import { StateValueType } from "../redux/addSlice";
+import { RootState } from "../redux/store";
 
 export default function DisplayData() {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState<StateValueType[]>([]);
   const [toggleSort, setToggleSort] = useState(false);
-  const tasks = useSelector((state) => state.addTodo.value); //This is reducer name
+  const tasks = useSelector((state : RootState) => state.addTodo.value); //This is reducer name
   
   const dispatch = useDispatch();
 
@@ -37,7 +39,7 @@ export default function DisplayData() {
    }
   }
 
-  const checkBoxHandler = (item) => {
+  const checkBoxHandler = (item : StateValueType) => {
     dispatch(removeTodo(item.id));
     dispatch(addToFinishList(item)); //for adding data to completed list;
   }

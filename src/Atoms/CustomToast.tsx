@@ -2,11 +2,15 @@ import React from 'react'
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 
-export default function CustomToast(props) {
+interface CustomToastType {
+  ToastHandler: ()=>void
+}
+
+export default function CustomToast(props: CustomToastType) {
   return (
     <ToastContainer
       position="top-end"
-      className="p-3"
+      className="p-4"
       style={{ marginTop: "5%" }}
     >
       <Toast style={{ width: "280px" }}>
@@ -20,7 +24,7 @@ export default function CustomToast(props) {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-x-circle"
+            className="bi bi-x-circle"
             viewBox="0 0 16 16"
             onClick={props.ToastHandler}
             style={{ cursor: "pointer" }}

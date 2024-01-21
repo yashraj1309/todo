@@ -1,6 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export interface StateValueType {
+  task: string;
+  priority: number;
+  id: number;
+}
+
+ interface StateType {
+  value : StateValueType[];
+}
+
+
+const initialState : StateType = {
   value: []
 };
 
