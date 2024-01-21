@@ -11,20 +11,20 @@ function AddForm() {
     const [toastHandler, setToastHandler] = useState(false);
     const [priority, setPriority] = useState('');
 
-    const addTask = (e) => {
-        e.preventDefault();
-        if(task==="") {
-            setToastHandler(true);
-            return;
-        }
-        if(priority==="") {
-          setToastHandler(true);
-          return;
-        }
-        const id = Math.random();
-        dispatch(addTodo({id: id,task: task, priority: priority}));
-        setTask('');
-    }
+    const addTask = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (task === "") {
+        setToastHandler(true);
+        return;
+      }
+      if (priority === "") {
+        setToastHandler(true);
+        return;
+      }
+      const id = Math.random();
+      dispatch(addTodo({ id: id, task: task, priority: priority }));
+      setTask("");
+    };
 
     const ToastHandler = () => {
       setToastHandler(false);

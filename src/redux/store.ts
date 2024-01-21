@@ -8,3 +8,6 @@ export const store = configureStore({
     addToFinishList: finishedSlice
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>; // Use store.getState()
+

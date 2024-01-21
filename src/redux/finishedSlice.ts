@@ -1,6 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface StateValueType {
+  task: string;
+  priority: number;
+  id: number;
+}
+
+interface StateType {
+  value: StateValueType[];
+}
+
+const initialState: StateType = {
   value: [],
 };
 
@@ -11,9 +21,10 @@ export const finishTodoSlice = createSlice({
     addToFinishList: (state, action) => {
       state.value = [...state.value, action.payload];
     },
+    clearList: (state) => initialState
   },
 });
 
-export const { addToFinishList } = finishTodoSlice.actions;
+export const { addToFinishList, clearList } = finishTodoSlice.actions;
 
 export default finishTodoSlice.reducer;

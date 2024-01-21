@@ -1,13 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Table from "react-bootstrap/Table";
 import CompletedTask from "../Atoms/CompletedTask";
+import EmptyList from "../Atoms/EmptyList";
+
+import { RootState } from "../redux/store";
+import { StateValueType } from "../redux/addSlice";
+import { clearList } from "../redux/finishedSlice";
 
 export default function CompletedList() {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState<StateValueType[]>([]);
 
-  const tasks = useSelector((state) => state.addToFinishList.value);
+  const dispatch = useDispatch();
+
+  const tasks = useSelector((state: RootState) => state.addToFinishList.value);
   useEffect(() => {
     if (tasks) {
       setTaskList((prevTaskList) => {
@@ -15,16 +23,26 @@ export default function CompletedList() {
       });
     }
   }, [tasks]);
-  console.log(taskList);
+
+  const clearTask = () => {
+    dispatch(clearList());
+  };
   return (
     <>
       {taskList.length === 0 ? (
-        <div style={{color:'red', fontWeight: 'bold'}}>No Tasks are Completed..</div>
+        <EmptyList />
       ) : (
         <>
-          <h3 style={{ textAlign: "center" }} className="mb-5">
-            Completed Tasks
-          </h3>
+          <header className="d-flex align-items-center  justify-content-center mb-5">
+            <h3 style={{ textAlign: "center" }}>Completed Tasks</h3>
+            <button
+              type="button"
+              className="btn btn-primary mx-3 mb-2"
+              onClick={clearTask}
+            >
+              Clear Tasks
+            </button>
+          </header>
           <Table
             striped
             bordered
