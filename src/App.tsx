@@ -5,6 +5,7 @@ import { useState } from "react";
 import DisplayData from "./Components/DisplayData";
 import CompletedList from "./Components/CompletedList";
 import Button from "react-bootstrap/Button";
+import EditForm from "./Components/EditForm";
 
 function App(): React.ReactElement {
   const [addToggle, setAddToggle] = useState<boolean>(false);
@@ -42,7 +43,7 @@ function App(): React.ReactElement {
                   type="button"
                   className="btn btn-primary mb-3 "
                   onClick={() => setAddToggle(!addToggle)}
-                  style={{marginLeft: '45%'}}
+                  style={{ marginLeft: "45%" }}
                 >
                   {addToggle ? "Close Form" : "Add Task"}
                 </button>

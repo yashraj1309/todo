@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addTodo } from "../redux/addSlice";
 import CustomToast from "../Atoms/CustomToast";
+import TaskForm from "../Atoms/TaskForm";
 
 function AddForm() {
     const dispatch = useDispatch();
@@ -32,35 +33,12 @@ function AddForm() {
   return (
     <>
       {toastHandler && <CustomToast ToastHandler={ToastHandler} />}
-      <Form
+      <TaskForm
+        task={task}
         onSubmit={addTask}
-        style={{ width: "500px" }}
-        className="container border p-0.5 rounded mt-4 mb-5 d-flex justify-content-center align-items-center "
-      >
-        <Form.Group className="m-3">
-          <Form.Control
-            type="text"
-            placeholder="Enter Task"
-            onChange={(e) => setTask(e.target.value)}
-            value={task}
-          />
-        </Form.Group>
-        <Form.Select className="m-3" style={{ width: "fit-content" }} onChange={(e)=> setPriority(e.target.value)}>
-          <option value="0">Priority</option>
-          <option value="1" style={{ color: "green" }}>
-            Low
-          </option>
-          <option value="2" style={{ color: "orange" }}>
-            Medium
-          </option>
-          <option value="3" style={{ color: "red" }}>
-            High
-          </option>
-        </Form.Select>
-        <Button variant="primary" className="m-3" type="submit">
-          Submit
-        </Button>
-      </Form>
+        onChange={(e) => setTask(e.target.value)}
+        setPriority={(e) => setPriority(e.target.value)}
+      />
     </>
   );
 }
