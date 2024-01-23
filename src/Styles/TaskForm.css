@@ -1,0 +1,6 @@
+@media only screen and (max-device-width: 812px) { 
+    .add-form {
+        width: 90% !important;
+        flex-direction: column; 
+    }
+}

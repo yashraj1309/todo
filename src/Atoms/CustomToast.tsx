@@ -1,6 +1,7 @@
 import React from 'react'
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
+import '../Styles/Toast.css';
 
 interface CustomToastType {
   ToastHandler: ()=>void
@@ -10,7 +11,7 @@ export default function CustomToast(props: CustomToastType) {
   return (
     <ToastContainer
       position="top-end"
-      className="p-4"
+      className="p-4 toastii"
       style={{ marginTop: "5%" }}
     >
       <Toast style={{ width: "280px" }}>

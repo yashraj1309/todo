@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "react-bootstrap/Table";
 import CompletedTask from "../Atoms/CompletedTask";
 import EmptyList from "../Atoms/EmptyList";
+import '../Styles/CompletedTask.css';
+
 
 import { RootState } from "../redux/store";
 import { StateValueType } from "../redux/addSlice";
@@ -43,30 +43,32 @@ export default function CompletedList() {
               Clear Tasks
             </button>
           </header>
-          <Table
-            striped
-            bordered
-            hover
-            style={{ width: "700px", margin: "auto" }}
-          >
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Task</th>
-                <th>Priority</th>
-              </tr>
-            </thead>
-            <tbody>
-              {taskList?.map((item, index) => (
-                <CompletedTask
-                  task={item.task}
-                  priority={item.priority}
-                  index={index + 1}
-                  key={item.id}
-                />
-              ))}
-            </tbody>
-          </Table>
+          <div className="completed-task">
+            <Table
+              striped
+              bordered
+              hover
+              style={{ width: "700px", margin: "auto" }}
+            >
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Task</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+                {taskList?.map((item, index) => (
+                  <CompletedTask
+                    task={item.task}
+                    priority={item.priority}
+                    index={index + 1}
+                    key={item.id}
+                  />
+                ))}
+              </tbody>
+            </Table>
+          </div>
         </>
       )}
     </>

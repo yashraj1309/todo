@@ -5,7 +5,7 @@ import { useState } from "react";
 import DisplayData from "./Components/DisplayData";
 import CompletedList from "./Components/CompletedList";
 import Button from "react-bootstrap/Button";
-import EditForm from "./Components/EditForm";
+import './App.css';
 
 function App(): React.ReactElement {
   const [addToggle, setAddToggle] = useState<boolean>(false);
@@ -21,7 +21,7 @@ function App(): React.ReactElement {
             justifyContent: "space-between",
           }}
         >
-          <h1 style={{ textAlign: "left" }}>To Do App</h1>
+          <h1 style={{ textAlign: "left", marginRight: '8px', textDecoration: 'line-through', marginBottom:0 }}>TO DO</h1>
           <div>
             <Link to="/">
               <Button variant="outline-primary" style={{ marginRight: "8px" }}>
@@ -41,7 +41,7 @@ function App(): React.ReactElement {
               <div className="container">
                 <button
                   type="button"
-                  className="btn btn-primary mb-3 "
+                  className="btn btn-primary mb-3 task-form-toggle-btn"
                   onClick={() => setAddToggle(!addToggle)}
                   style={{ marginLeft: "45%" }}
                 >

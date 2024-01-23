@@ -1,0 +1,11 @@
+@media only screen and (max-device-width: 812px) {
+    header {
+        padding: 1rem !important;
+        margin-top: 1rem;
+    }
+
+    .task-form-toggle-btn {
+        margin-left: auto !important;
+        margin-top: 1rem;
+    }
+}

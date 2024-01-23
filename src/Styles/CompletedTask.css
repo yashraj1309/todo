@@ -1,0 +1,6 @@
+@media only screen and (max-device-width: 812px) { 
+    .completed-task {
+        overflow-x: auto;
+        margin: 1rem;
+    }
+ }
