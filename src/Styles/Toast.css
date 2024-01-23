@@ -1,0 +1,6 @@
+@media only screen and (max-device-width: 812px) {  
+    .toastii {
+        width: 220px !important;
+        margin-top: 18% !important;
+    }
+}

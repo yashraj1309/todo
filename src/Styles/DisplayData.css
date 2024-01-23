@@ -1,0 +1,6 @@
+@media only screen and (max-device-width: 812px) { 
+.table-list {
+    border-collapse: collapse !important;
+    overflow-y: auto;
+}
+}

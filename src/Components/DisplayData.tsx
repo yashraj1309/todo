@@ -8,6 +8,7 @@ import { addToFinishList } from '../redux/finishedSlice'
 import { StateValueType } from "../redux/addSlice";
 import { RootState } from "../redux/store";
 import EditForm from "./EditForm";
+import '../Styles/DisplayData.css';
 
 export default function DisplayData() {
   const [taskList, setTaskList] = useState<StateValueType[]>([]);
@@ -60,7 +61,7 @@ export default function DisplayData() {
     <>
       {tasks.length !== 0 && (
         <>
-          {editShow && <EditForm id={editId} closeEditForm={closeEditForm}/>}
+          {editShow && <EditForm id={editId} closeEditForm={closeEditForm} />}
           <header
             style={{
               display: "flex",
@@ -91,34 +92,36 @@ export default function DisplayData() {
               </svg>
             </Button>
           </header>
-          <Table
-            striped
-            bordered
-            hover
-            style={{ width: "700px", margin: "auto" }}
-          >
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Task</th>
-                <th>Priority</th>
-                <th>Status</th>
-                <th>Edit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {taskList?.map((item, index) => (
-                <Task
-                  task={item.task}
-                  priority={item.priority}
-                  index={index + 1}
-                  key={item.id}
-                  onChange={() => checkBoxHandler(item)}
-                  editClick={() => editClickHandler(item)}
-                />
-              ))}
-            </tbody>
-          </Table>
+          <div className="table-list">
+            <Table
+              striped
+              bordered
+              hover
+              style={{ width: "700px", margin: "auto" }}
+            >
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Task</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {taskList?.map((item, index) => (
+                  <Task
+                    task={item.task}
+                    priority={item.priority}
+                    index={index + 1}
+                    key={item.id}
+                    onChange={() => checkBoxHandler(item)}
+                    editClick={() => editClickHandler(item)}
+                  />
+                ))}
+              </tbody>
+            </Table>
+          </div>
         </>
       )}
     </>
