@@ -27,6 +27,7 @@ export default function TaskForm(props: TaskFormType) {
         />
       </Form.Group>
       <PrioritySelect setPriority={props.setPriority} />
+      {"Want to add Date"}
       <Button variant="primary" className="m-3" type="submit">
         Submit
       </Button>
