@@ -30,7 +30,7 @@ export default function EditForm(props: EditFormType) {
          setToastHandler(true);
          return;
        }
-       dispatch(editTodo({ id: props.id, task: task, priority: priority }));
+       dispatch(editTodo({ id: props.id, task: task, priority: priority, date: date }));
        props.closeEditForm();
    };
     const ToastHandler = () => {

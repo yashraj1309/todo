@@ -17,7 +17,7 @@ export default function Task(props: TaskType) {
   return (
     <tr key={props.key}>
       <td>{props.index}</td>
-      <td style={{ width: "300px", whiteSpace: "nowrap", overflowX: "auto" }}>
+      <td style={{ maxWidth: "300px", whiteSpace: "nowrap", overflowX: "auto" }}>
         {" "}
         {props.task}{" "}
       </td>

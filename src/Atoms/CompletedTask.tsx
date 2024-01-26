@@ -16,10 +16,10 @@ export default function CompletedTask(props: CompletedTaskType) {
       <td> {props.task} </td>
       <td
         style={{
-          paddingLeft: "38%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
+          verticalAlign: 'middle',
+          textAlign: 'left',
+          width: '120px',
+          paddingLeft: '20px'
         }}
       >
         {" "}
@@ -30,7 +30,7 @@ export default function CompletedTask(props: CompletedTaskType) {
           fill={colors[props.priority - 1]}
           className="bi bi-circle-fill"
           viewBox="0 0 16 16"
-          style={{ marginRight: "16px" }}
+          style={{marginRight: '8px'}}
         >
           <circle cx="8" cy="8" r="8" />
         </svg>
