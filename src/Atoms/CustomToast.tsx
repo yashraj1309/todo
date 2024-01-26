@@ -10,7 +10,7 @@ interface CustomToastType {
 export default function CustomToast(props: CustomToastType) {
   return (
     <ToastContainer
-      position="top-end"
+      position="bottom-end"
       className="p-4 toastii"
       style={{ marginTop: "5%" }}
     >

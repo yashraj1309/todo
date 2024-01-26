@@ -9,6 +9,7 @@ function AddForm() {
     const [task, setTask] = useState('');
     const [toastHandler, setToastHandler] = useState(false);
     const [priority, setPriority] = useState('');
+    const [date, setDate] = useState('');
 
     const addTask = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -21,8 +22,13 @@ function AddForm() {
         return;
       }
       const id = Math.random();
-      dispatch(addTodo({ id: id, task: task, priority: priority }));
+      dispatch(addTodo({ id: id, task: task, priority: priority, date: date }));
       setTask("");
+      setDate('');
+    };
+
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setDate(e.target.value);
     };
 
     const ToastHandler = () => {
@@ -36,6 +42,8 @@ function AddForm() {
         onSubmit={addTask}
         onChange={(e) => setTask(e.target.value)}
         setPriority={(e) => setPriority(e.target.value)}
+        date={date}
+        handleDateChange={handleDateChange}
       />
     </>
   );

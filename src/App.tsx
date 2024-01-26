@@ -38,12 +38,11 @@ function App(): React.ReactElement {
           <Route
             path="/"
             element={
-              <div className="container">
+              <div className="container d-flex align-center justify-content-center flex-column">
                 <button
                   type="button"
                   className="btn btn-primary mb-3 task-form-toggle-btn"
                   onClick={() => setAddToggle(!addToggle)}
-                  style={{ marginLeft: "45%" }}
                 >
                   {addToggle ? "Close Form" : "Add Task"}
                 </button>

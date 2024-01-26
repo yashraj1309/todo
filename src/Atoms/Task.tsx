@@ -5,9 +5,10 @@ interface TaskType {
   key: number;
   index: number;
   task: string;
-  priority: number,
-  onChange: ()=>void,
-  editClick: ()=>void
+  priority: number;
+  onChange: ()=>void;
+  editClick: ()=>void;
+  date?: string;
 }
 
 export default function Task(props: TaskType) {
@@ -16,13 +17,16 @@ export default function Task(props: TaskType) {
   return (
     <tr key={props.key}>
       <td>{props.index}</td>
-      <td> {props.task} </td>
+      <td style={{ width: "300px", whiteSpace: "nowrap", overflowX: "auto" }}>
+        {" "}
+        {props.task}{" "}
+      </td>
       <td
         style={{
-          paddingLeft: "34%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
+          width: "120px",
+          verticalAlign: "middle",
+          textAlign: "left",
+          paddingLeft: "25px",
         }}
       >
         {" "}
@@ -33,12 +37,19 @@ export default function Task(props: TaskType) {
           fill={colors[props.priority - 1]}
           className="bi bi-circle-fill"
           viewBox="0 0 16 16"
-          style={{ marginRight: "16px" }}
+          style={{
+            marginRight: "8px",
+            display: "inline-block",
+            verticalAlign: "middle",
+          }}
         >
           <circle cx="8" cy="8" r="8" />
         </svg>
-        {priority[props.priority - 1]}
+        <span style={{ verticalAlign: "middle" }}>
+          {priority[props.priority - 1]}
+        </span>
       </td>
+      <td>{props.date === "" ? "Not Added" : props.date}</td>
       <td>
         <Form>
           <Form.Check type="checkbox" onChange={props.onChange} />

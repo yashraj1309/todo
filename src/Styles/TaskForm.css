@@ -1,3 +1,12 @@
+.form-date {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
 @media only screen and (max-device-width: 812px) { 
     .add-form {
         width: 90% !important;

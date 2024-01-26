@@ -1,3 +1,7 @@
+.task-form-toggle-btn {
+    width: 90%;
+    margin: auto;
+}
 @media only screen and (max-device-width: 812px) {
     header {
         padding: 1rem !important;

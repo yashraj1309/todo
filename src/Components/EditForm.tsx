@@ -16,6 +16,7 @@ export default function EditForm(props: EditFormType) {
    const [task, setTask] = useState("");
    const [priority, setPriority] = useState("");
    const [toastHandler, setToastHandler] = useState(false);
+   const [date, setDate] = useState("");
 
    const dispatch = useDispatch();
 
@@ -34,6 +35,10 @@ export default function EditForm(props: EditFormType) {
    };
     const ToastHandler = () => {
       setToastHandler(false);
+    };
+
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setDate(e.target.value);
     };
   return (
     <div className="overlay-container">
@@ -55,6 +60,8 @@ export default function EditForm(props: EditFormType) {
           onSubmit={submitHandler}
           onChange={(e) => setTask(e.target.value)}
           setPriority={(e) => setPriority(e.target.value)}
+          date={date}
+          handleDateChange={handleDateChange}
         />
       </div>
     </div>

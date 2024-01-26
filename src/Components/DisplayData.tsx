@@ -97,13 +97,14 @@ export default function DisplayData() {
               striped
               bordered
               hover
-              style={{ width: "700px", margin: "auto" }}
+              style={{ width: "90%", margin: "auto" }}
             >
               <thead>
                 <tr>
                   <th>No</th>
                   <th>Task</th>
                   <th>Priority</th>
+                  <th>Deadline</th>
                   <th>Status</th>
                   <th>Edit</th>
                 </tr>
@@ -115,6 +116,7 @@ export default function DisplayData() {
                     priority={item.priority}
                     index={index + 1}
                     key={item.id}
+                    date={item.date}
                     onChange={() => checkBoxHandler(item)}
                     editClick={() => editClickHandler(item)}
                   />

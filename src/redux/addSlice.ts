@@ -4,6 +4,7 @@ export interface StateValueType {
   task: string;
   priority: number;
   id: number;
+  date?: string;
 }
 
  interface StateType {
