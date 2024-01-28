@@ -4,7 +4,8 @@ interface CompletedTaskType {
   key: number,
   index: number, 
   task: string,
-  priority: number
+  priority: number,
+  date: string
 }
 
 export default function CompletedTask(props: CompletedTaskType) {
@@ -35,6 +36,9 @@ export default function CompletedTask(props: CompletedTaskType) {
           <circle cx="8" cy="8" r="8" />
         </svg>
         {priority[props.priority - 1]}
+      </td>
+      <td>
+        {props.date}
       </td>
     </tr>
   );

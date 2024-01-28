@@ -55,6 +55,7 @@ export default function CompletedList() {
                   <th>No</th>
                   <th>Task</th>
                   <th>Priority</th>
+                  <th>Deadline</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,6 +65,7 @@ export default function CompletedList() {
                     priority={item.priority}
                     index={index + 1}
                     key={item.id}
+                    date={item.date?item.date:"Not Added"}
                   />
                 ))}
               </tbody>
