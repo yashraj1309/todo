@@ -4,6 +4,7 @@ import AddForm from "./Components/AddForm";
 import { useState } from "react";
 import DisplayData from "./Components/DisplayData";
 import CompletedList from "./Components/CompletedList";
+import Notes from "./Components/Notes";
 import Button from "react-bootstrap/Button";
 import './App.css';
 
@@ -21,11 +22,25 @@ function App(): React.ReactElement {
             justifyContent: "space-between",
           }}
         >
-          <h1 style={{ textAlign: "left", marginRight: '8px', textDecoration: 'line-through', marginBottom:0 }}>TO DO</h1>
+          <h1
+            style={{
+              textAlign: "left",
+              marginRight: "8px",
+              textDecoration: "line-through",
+              marginBottom: 0,
+            }}
+          >
+            TO DO
+          </h1>
           <div>
             <Link to="/">
               <Button variant="outline-primary" style={{ marginRight: "8px" }}>
                 Home
+              </Button>
+            </Link>
+            <Link to="/notes">
+              <Button variant="outline-primary" style={{ marginRight: "8px" }}>
+                Notes
               </Button>
             </Link>
             <Link to="/completed">
@@ -35,6 +50,7 @@ function App(): React.ReactElement {
         </header>
         <Routes>
           <Route path="/completed" element={<CompletedList />} />
+          <Route path="/notes" element={<Notes />} />
           <Route
             path="/"
             element={
