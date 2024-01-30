@@ -1,12 +1,14 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import AddForm from "./Components/AddForm";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "./App.css";
+import AddForm from "./Components/AddForm";
 import DisplayData from "./Components/DisplayData";
 import CompletedList from "./Components/CompletedList";
 import Notes from "./Components/Notes";
-import Button from "react-bootstrap/Button";
-import './App.css';
+import DisplayNotes from "./Components/DisplayNotes";
+
 
 function App(): React.ReactElement {
   const [addToggle, setAddToggle] = useState<boolean>(false);
@@ -48,9 +50,10 @@ function App(): React.ReactElement {
             </Link>
           </div>
         </header>
-        <Routes>
+        <Routes>  
           <Route path="/completed" element={<CompletedList />} />
           <Route path="/notes" element={<Notes />} />
+          <Route path="/displaynotes" element={<DisplayNotes/>}/>
           <Route
             path="/"
             element={

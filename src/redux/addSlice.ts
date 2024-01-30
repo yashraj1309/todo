@@ -17,7 +17,7 @@ const initialState : StateType = {
 };
 
 export const counterSlice = createSlice({
-  name: "add",
+  name: "add", //for dev tools
   initialState,
   reducers: {
     addTodo: (state, action) => {
@@ -37,4 +37,4 @@ export const counterSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addTodo, removeTodo, editTodo } = counterSlice.actions;
 
-export default counterSlice.reducer;
+export default counterSlice.reducer;  

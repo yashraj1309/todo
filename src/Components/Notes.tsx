@@ -1,10 +1,19 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import CustomToast from "../Atoms/CustomToast";
+import { useDispatch } from "react-redux";
+import { addNote } from "../redux/notesSlice";
+import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import '../Styles/Notes.css';
 
 export default function Notes() {
   const [note, setNote] = useState("");
+  const [title, setTitle] = useState("");
   const [toastHandler, setToastHandler] = useState(false);
+
+  const dispatch = useDispatch();
   const handleNoteChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNote(event.target.value);
   };
@@ -18,13 +27,41 @@ export default function Notes() {
         setToastHandler(true);
         return;
     }
+    if(title==="") {
+      setToastHandler(true);
+      return;
+    }
+    const currentTimestamp = new Date();
+    dispatch(
+      addNote({ title: title, date: currentTimestamp.toString(), note: note })
+    );
+    alert("Note Added Successfully.")
+    setTitle("");
+    setNote("");
   };
   return (
     <>
       {toastHandler && <CustomToast ToastHandler={ToastHandler} />}
-      <div className="container d-flex align-center flex-column notes-main text-center">
-        <h3 className="mb-3">Notepad : Add Notes</h3>
+      <div className="notes-main">
+        <div className="d-flex">
+          <h3 className="mb-3 mx-3">Notepad : Add Notes</h3>
+          <Link to="/displaynotes">
+            <Button variant="outline-success" style={{ marginRight: "20px" }}>
+              Note Archive
+            </Button>
+          </Link>
+        </div>
         <div>
+          <InputGroup className="mb-3" style={{ width: "100%" }}>
+            <InputGroup.Text id="basic-addon1">Title</InputGroup.Text>
+            <Form.Control
+              placeholder="Title"
+              aria-label="TItle"
+              aria-describedby="basic-addon1"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </InputGroup>
           <textarea
             rows={10}
             cols={50}
@@ -35,15 +72,10 @@ export default function Notes() {
             className="border p-2 rounded"
           />
         </div>
-        {/* <div>
-        <h3>Preview:</h3>
-        <p>{note}</p>
-      </div> */}
         <div>
           <Button
             variant="primary"
-            className="m-3"
-            style={{ width: "20%" }}
+            className="m-3 px-4"
             onClick={addNoteClickHandler}
           >
             ADD NOTE
