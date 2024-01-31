@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "react-bootstrap/Table";
 import CompletedTask from "../Atoms/CompletedTask";
-import EmptyList from "../Atoms/EmptyList";
+import EmptyList from "../Atoms/Empty";
 import '../Styles/CompletedTask.css';
 
 
@@ -14,6 +14,9 @@ export default function CompletedList() {
   const [taskList, setTaskList] = useState<StateValueType[]>([]);
 
   const dispatch = useDispatch();
+
+  const emptyMessage = "No Tasks are Completed..";
+  const url = "/";
 
   const tasks = useSelector((state: RootState) => state.addToFinishList.value);
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function CompletedList() {
   return (
     <>
       {taskList.length === 0 ? (
-        <EmptyList />
+        <EmptyList message={emptyMessage} returnUrl={url}/>
       ) : (
         <>
           <header className="d-flex align-items-center  justify-content-center mb-5">

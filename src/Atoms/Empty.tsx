@@ -1,8 +1,12 @@
-import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function EmptyList() {
+interface EmptyType {
+  message: string;
+  returnUrl: string;
+}
+
+export default function EmptyList(props: EmptyType) {
   const navigate = useNavigate();
 
   const [count, setCount] = useState(3);
@@ -14,7 +18,8 @@ export default function EmptyList() {
         setCount((prev)=> prev-1);
       }
       else {
-        navigate('/')
+        // navigate('/')
+        navigate(props.returnUrl);
       }
     },1000)
     return () => clearTimeout(timer);
@@ -36,7 +41,8 @@ export default function EmptyList() {
           color: 'red'
         }}
       >
-        No Tasks are Completed..
+        {/* No Tasks are Completed.. */}
+        {props.message}
         <br></br>
         <div style={{ color: "green" }}>
           Redirecting you to Home Page in <b>&nbsp;{count}&nbsp; </b> Seconds...
