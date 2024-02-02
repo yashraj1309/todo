@@ -32,7 +32,7 @@ export default function Note(props: NotesType) {
               width: '100%'
             }}
           >
-            <h4 style={{ marginBottom: "0", fontSize: '1.2rem' }}>{props.title}</h4>
+            <h4 style={{ marginBottom: "0", fontSize: '1.2rem', maxWidth: '60%' }}>{props.title}</h4>
             <p style={{ marginBottom: "0", marginRight: '.5rem', fontSize: '.9rem' }}>{customDate}</p>
           </div>
         </Accordion.Header>
