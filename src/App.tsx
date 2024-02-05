@@ -55,7 +55,7 @@ function App(): React.ReactElement {
           <Route path="/notes" element={<Notes />} />
           <Route path="/displaynotes" element={<DisplayNotes/>}/>
           <Route
-            path="/"
+            path="/*"
             element={
               <div className="container d-flex align-center justify-content-center flex-column">
                 <button
